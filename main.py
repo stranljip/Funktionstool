@@ -4,29 +4,8 @@ from math import *
 from cmath import *
 import warnings
 
-modules = [("click", "from click import clear", "pip3 install click"),
-           ("numpy", "import numpy as np", "pip3 install numpy"),
-           ("matplotlib", "import matplotlib.pyplot as plt", "pip3 install matplotlib"),
-           ("prettytable", "from prettytable import PrettyTable", "pip3 install prettytable"),
-           ("sympy", "from sympy import diff, integrate, symbols", "pip3 install sympy")]
-
-for name, imp, ins in modules:
-    try:
-        exec(imp)
-    except ModuleNotFoundError:
-        print(f"[+] Installing {name} ({ins})")
-        os.system(ins)
-        try:
-            exec(imp)
-        except ModuleNotFoundError:
-            print(f"[!] There was a problem installing and/or importing the {name} module. "
-                  f"Please check your internet connection")
-            print(f"[+] Press enter to close the program")
-            input()
-            os._exit(-1)
-        print()
-
 warnings.filterwarnings("ignore")
+
 import numpy as np
 from click import clear
 import matplotlib.pyplot as plt
